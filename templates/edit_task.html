@@ -1,8 +1,28 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
+{% block title %}Edit Task{% endblock %}
+
 {% block content %}
-<form method="post">
-    <label for="content">Task:</label>
-    <input type="text" id="content" name="content" value="{{ task.content }}" required>
-    <button type="submit">Update</button>
-</form>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-dark text-white">
+                <h3 class="card-title">Edit Task</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Task</label>
+                        <input type="text" name="content" id="content" class="form-control" value="{{ task.content }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="deadline" class="form-label">Deadline (YYYY-MM-DD)</label>
+                        <input type="date" name="deadline" id="deadline" class="form-control" value="{{ task.deadline }}">
+                    </div>                    
+                    <button type="submit" class="btn btn-warning w-100">Update Task</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
