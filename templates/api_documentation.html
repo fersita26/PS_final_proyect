@@ -4,71 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Documentation</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container my-5">
-        <h1 class="text-center">API Documentation</h1>
-        <hr>
-        <h2>Base URL</h2>
-        <p><code>http://127.0.0.1:5000</code></p>
+    <div class="container mt-5">
+        <h1 class="mb-4">API Documentation</h1>
 
-        <h2>Endpoints</h2>
-        <h3>1. Listar Tareas</h3>
-        <p><strong>URL:</strong> <code>/api/tasks</code></p>
-        <p><strong>Método:</strong> <code>GET</code></p>
-        <p><strong>Autenticación:</strong> Requiere inicio de sesión.</p>
-        <p><strong>Respuesta Exitosa:</strong></p>
-        <pre><code>[
-    {
-        "id": 1,
-        "content": "Complete project",
-        "deadline": "2024-12-15"
-    },
-    {
-        "id": 2,
-        "content": "Prepare presentation",
-        "deadline": null
-    }
-]</code></pre>
+        <h2>Available Endpoints</h2>
 
-        <h3>2. Agregar Tarea</h3>
-        <p><strong>URL:</strong> <code>/api/tasks</code></p>
-        <p><strong>Método:</strong> <code>POST</code></p>
-        <p><strong>Cuerpo de la Solicitud:</strong></p>
-        <pre><code>{
+        <div class="mb-5">
+            <h3>1. Get All Tasks</h3>
+            <p><strong>URL:</strong> <code>/api/tasks</code></p>
+            <p><strong>Method:</strong> <code>GET</code></p>
+            <p><strong>Description:</strong> Retrieves all tasks for the authenticated user.</p>
+            <p><strong>Response:</strong></p>
+            <pre><code>{
+    [
+        {
+            "id": 1,
+            "content": "Task 1",
+            "deadline": "2024-12-25"
+        }
+    ]
+}</code></pre>
+        </div>
+
+        <div class="mb-5">
+            <h3>2. Create a New Task</h3>
+            <p><strong>URL:</strong> <code>/api/tasks</code></p>
+            <p><strong>Method:</strong> <code>POST</code></p>
+            <p><strong>Description:</strong> Creates a new task for the authenticated user.</p>
+            <p><strong>Request Body:</strong></p>
+            <pre><code>{
     "content": "New Task",
     "deadline": "2024-12-20"
 }</code></pre>
-        <p><strong>Respuesta Exitosa:</strong></p>
-        <pre><code>{
-    "id": 3,
+            <p><strong>Response:</strong></p>
+            <pre><code>{
+    "id": 2,
     "content": "New Task",
     "deadline": "2024-12-20"
 }</code></pre>
+        </div>
 
-        <h3>3. Actualizar Tarea</h3>
-        <p><strong>URL:</strong> <code>/api/tasks/&lt;task_id&gt;</code></p>
-        <p><strong>Método:</strong> <code>PUT</code></p>
-        <p><strong>Cuerpo de la Solicitud:</strong></p>
-        <pre><code>{
+        <div class="mb-5">
+            <h3>3. Update an Existing Task</h3>
+            <p><strong>URL:</strong> <code>/api/tasks/&lt;task_id&gt;</code></p>
+            <p><strong>Method:</strong> <code>PUT</code></p>
+            <p><strong>Description:</strong> Updates an existing task.</p>
+            <p><strong>Request Body:</strong></p>
+            <pre><code>{
     "content": "Updated Task",
-    "deadline": "2024-12-25"
+    "deadline": "2024-12-22"
 }</code></pre>
-        <p><strong>Respuesta Exitosa:</strong></p>
-        <pre><code>{
-    "id": 3,
+            <p><strong>Response:</strong></p>
+            <pre><code>{
+    "id": 2,
     "content": "Updated Task",
-    "deadline": "2024-12-25"
+    "deadline": "2024-12-22"
 }</code></pre>
+        </div>
 
-        <h3>4. Eliminar Tarea</h3>
-        <p><strong>URL:</strong> <code>/api/tasks/&lt;task_id&gt;</code></p>
-        <p><strong>Método:</strong> <code>DELETE</code></p>
-        <p><strong>Respuesta Exitosa:</strong></p>
-        <pre><code>{
+        <div class="mb-5">
+            <h3>4. Delete a Task</h3>
+            <p><strong>URL:</strong> <code>/api/tasks/&lt;task_id&gt;</code></p>
+            <p><strong>Method:</strong> <code>DELETE</code></p>
+            <p><strong>Description:</strong> Deletes a task.</p>
+            <p><strong>Response:</strong></p>
+            <pre><code>{
     "message": "Task deleted successfully"
 }</code></pre>
+        </div>
+
+        <div class="mb-5">
+            <h3>5. Query Tasks by Date</h3>
+            <p><strong>URL:</strong> <code>/api/tasks/by_date?date=YYYY-MM-DD</code></p>
+            <p><strong>Method:</strong> <code>GET</code></p>
+            <p><strong>Description:</strong> Retrieves all tasks for a specific date.</p>
+            <p><strong>Response:</strong></p>
+            <pre><code>{
+    "tasks": [
+        {
+            "id": 1,
+            "content": "Task for today",
+            "deadline": "2024-12-20"
+        }
+    ]
+}</code></pre>
+        </div>
+
+        <footer class="mt-5">
+            <p class="text-muted">For more details, please contact the developer.</p>
+        </footer>
     </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
